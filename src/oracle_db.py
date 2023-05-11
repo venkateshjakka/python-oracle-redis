@@ -18,11 +18,13 @@ def output_type_handler(cursor, name, default_type, size, precision, scale):
         return cursor.var(oracledb.DB_TYPE_LONG_NVARCHAR, arraysize=cursor.arraysize)
 
 
-connection = oracledb.connect(user="apps", password="apps", dsn="{host}:1521/{service}")
+connection = oracledb.connect(
+    user="apps", password="apps", dsn="omsddb.cswg.com:1521/omsd_app"
+)
 
 connection.outputtypehandler = output_type_handler
 
-r = redis.Redis(host="{redis_host}", port={redis_port})
+r = redis.Redis(host="docker.cloudio.io", port=6379, db=0)
 
 print("Successfully connected to Oracle Database")
 

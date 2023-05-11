@@ -49,6 +49,6 @@ product_qualifier_query = (
     " apps.oms_prc_item_qualifiers_v opi "
     " WHERE "
     " opi.division_id = 2 "
-    " AND opi.company_code IN ( '010' ) and opi.source_item_code is not null "
+    " AND opi.company_code IN ( '010' ) and opi.source_item_code is not null and rownum <= 100"
 )
 # " AND ROWNUM < 10 "
